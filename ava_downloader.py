@@ -89,5 +89,8 @@ for line in f:
     imageID = line[1]
     URL = URLprefix + imageID
     html = getHtml(URL)
+    if html[:13] == '<h1>Attention':
+        print "Address blacklisted... You have to wait !"
+        exit(0)
     getImg(html, imageID, imageIndex)
     print('image%s success' % imageIndex)
